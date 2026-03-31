@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мир котов</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fdfaf6;
+      color: #333;
+      padding-top: 80px;
+    }
+
+    .navigation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #d97706;
+      padding: 18px 0;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .navigation a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .navigation a:hover {
+      background-color: #92400e;
+    }
+
+    .section {
+      min-height: 100vh;
+      padding: 40px 30px;
+      border-bottom: 2px solid #eee;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 48px;
+      color: #b45309;
+    }
+
+    h2 {
+      font-size: 34px;
+      color: #92400e;
+      border-bottom: 3px solid #d97706;
+      padding-bottom: 10px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #b45309;
+      font-size: 26px;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 12px;
+      display: block;
+      margin: 15px auto;
+    }
+
+    table {
+      width: 100%;
+      max-width: 900px;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: white;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #d97706;
+      color: white;
+    }
+
+    .tip {
+      background-color: #fff7ed;
+      border-left: 5px solid #f59e0b;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #b45309;
+    }
+
+    ul, ol {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    input, button, select {
+      padding: 10px;
+      margin: 8px 5px 8px 0;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #d97706;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #92400e;
+    }
+
+    footer {
+      background-color: #d97706;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Фиксированная навигация -->
+<div class="navigation">
+  <a href="#home">Главная</a>
+  <a href="#breeds">Породы</a>
+  <a href="#care">Уход</a>
+  <a href="#food">Питание</a>
+  <a href="#facts">Факты</a>
+  <a href="#contact">Отзывы</a>
+</div>
+
+<!-- Главная -->
+<div id="home" class="section">
+  <h1>Мир котов</h1>
+  <p style="text-align:center; font-size: 22px;">
+    Добро пожаловать на сайт о самых милых, пушистых и независимых питомцах!
+  </p>
+  <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1200&q=80" alt="Кот" width="800">
+</div>
+
+<!-- Породы -->
+<div id="breeds" class="section">
+  <h2>Популярные породы котов</h2>
+
+  <div class="card">
+    <h3>Британская короткошёрстная</h3>
+    <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=900&q=80" alt="Британский кот" width="600">
+    <p>Спокойные, плюшевые и очень красивые коты. Отлично подходят для жизни в квартире.</p>
+  </div>
+
+  <div class="card">
+    <h3>Мейн-кун</h3>
+    <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=900&q=80" alt="Мейн-кун" width="600">
+    <p>Крупные и дружелюбные коты с роскошной шерстью и пушистым хвостом.</p>
+  </div>
+
+  <div class="card">
+    <h3>Сфинкс</h3>
+    <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=900&q=80" alt="Сфинкс" width="600">
+    <p>Необычная порода без шерсти. Очень ласковые и любят тепло.</p>
+  </div>
+
+  <div class="card">
+    <h3>Мой Дюша (без понятия какой породы)</h3>
+    <img src="" alt="Дюша" width="960" height="1280">
+    <p>Подобрал где-то на улице. Ест за троих человек. Мурчит громче двигателя трактора. </p>
+  </div>
+</div>
+
+<!-- Уход -->
+<div id="care" class="section">
+  <h2>Уход за котами</h2>
+
+  <table>
+    <tr>
+      <th>Процедура</th>
+      <th>Как часто</th>
+      <th>Комментарий</th>
+    </tr>
+    <tr>
+      <td>Кормление</td>
+      <td>2–3 раза в день</td>
+      <td>Важно соблюдать режим</td>
+    </tr>
+    <tr>
+      <td>Чистка лотка</td>
+      <td>Ежедневно</td>
+      <td>Коты любят чистоту</td>
+    </tr>
+    <tr>
+      <td>Расчёсывание</td>
+      <td>1–3 раза в неделю</td>
+      <td>Особенно для длинношёрстных пород</td>
+    </tr>
+    <tr>
+      <td>Осмотр у ветеринара</td>
+      <td>1–2 раза в год</td>
+      <td>Для профилактики заболеваний</td>
+    </tr>
+  </table>
+
+  <div class="tip">
+    <h3>Совет</h3>
+    <p>У кота всегда должна быть свежая вода, чистый лоток и уютное место для сна.</p>
+  </div>
+</div>
+
+<!-- Питание -->
+<div id="food" class="section">
+  <h2>Питание котов</h2>
+
+  <div class="card">
+    <h3>Что любят коты</h3>
+    <ul>
+      <li>Качественный сухой корм</li>
+      <li>Влажный корм</li>
+      <li>Специальные лакомства</li>
+      <li>Чистую питьевую воду</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Чего нельзя давать</h3>
+    <ul>
+      <li>Шоколад</li>
+      <li>Лук и чеснок</li>
+      <li>Кости</li>
+      <li>Слишком солёную или острую еду</li>
+    </ul>
+  </div>
+
+  <p class="price">Средние расходы на корм: от 1500 руб. в месяц</p>
+</div>
+
+<!-- Факты -->
+<div id="facts" class="section">
+  <h2>Интересные факты о котах</h2>
+
+  <ol>
+    <li>Коты могут спать до 16 часов в сутки.</li>
+    <li>У каждого кота уникальный отпечаток носа.</li>
+    <li>Коты умеют мурлыкать не только от удовольствия, но и для успокоения.</li>
+    <li>Они отлично слышат высокие звуки.</li>
+    <li>Усы помогают котам ориентироваться в пространстве.</li>
+  </ol>
+
+  <form>
+    <p><b>Какой кот вам нравится больше всего?</b></p>
+    <select>
+      <option>Британец</option>
+      <option>Мейн-кун</option>
+      <option>Сфинкс</option>
+      <option>Дворовый котик</option>
+    </select>
+    <button type="button">Выбрать</button>
+  </form>
+</div>
+
+<!-- Отзывы -->
+<div id="contact" class="section">
+  <h2>Отзывы и вопросы</h2>
+
+  <div class="tip">
+    <h3>Напишите о своём питомце</h3>
+    <p>Расскажите, как зовут вашего кота и что он любит больше всего.</p>
+  </div>
+
+  <form>
+    <input type="text" placeholder="Имя кота" size="30">
+    <input type="text" placeholder="Ваш отзыв" size="50">
+    <button type="button">Отправить</button>
+  </form>
+
+  <form>
+    <p><b>Есть вопрос о котах?</b></p>
+    <input type="text" placeholder="Введите вопрос" size="40">
+    <button type="button">Спросить</button>
+  </form>
+</div>
+
+<footer>
+  <p>Сайт о котах | Все права защищены</p>
+</footer>
+
+</body>
+</html>
