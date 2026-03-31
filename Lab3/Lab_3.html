@@ -164,8 +164,47 @@
             background-color: #92400e;
         }
 
-        .meme-box {
-            text-align: center;
+        /* FLEXBOX */
+        .home-layout {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .home-text {
+            flex: 1 1 400px;
+        }
+
+        .home-image {
+            flex: 1 1 350px;
+        }
+
+        .home-image img {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .advantages {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .adv-card {
+            flex: 1 1 220px;
+            background: white;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .adv-card h3 {
+            margin-top: 0;
+            color: #b45309;
         }
 
         footer {
@@ -212,12 +251,36 @@
 <!-- Главная -->
 <div id="home" class="section">
     <h1>Мир котов</h1>
-    <p class="intro-text">
-        Добро пожаловать на сайт о самых милых, пушистых и независимых питомцах.
-        Здесь вы узнаете о популярных породах котов, правилах ухода, питании и интересных фактах.
-    </p>
-    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1200&q=80"
-         alt="Главный кот" width="800">
+
+    <div class="home-layout">
+        <div class="home-text">
+            <p class="intro-text" style="text-align: left;">
+                Добро пожаловать на сайт о самых милых, пушистых и независимых питомцах.
+                Здесь вы узнаете о популярных породах котов, правилах ухода, питании и интересных фактах.
+            </p>
+
+            <div class="advantages">
+                <div class="adv-card">
+                    <h3>Ласковые</h3>
+                    <p>Многие коты любят внимание, мурлыканье и уют рядом с человеком.</p>
+                </div>
+
+                <div class="adv-card">
+                    <h3>Забавные</h3>
+                    <p>Коты умеют удивлять своими привычками, прыжками и смешными позами.</p>
+                </div>
+
+                <div class="adv-card">
+                    <h3>Умные</h3>
+                    <p>Они быстро запоминают распорядок дня и отлично чувствуют настроение хозяина.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="home-image">
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1200&q=80" alt="Главный кот">
+        </div>
+    </div>
 </div>
 
 <!-- Породы -->
