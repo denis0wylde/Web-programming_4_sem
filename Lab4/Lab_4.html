@@ -233,6 +233,139 @@
                 font-size: 28px;
             }
         }
+
+        /* Анимации */
+        .navigation a {
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .navigation a:hover {
+            transform: scale(1.08);
+        }
+
+        .home-image img {
+            transition: transform 0.5s;
+        }
+
+        .home-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .breed-card {
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .breed-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+        }
+
+        .adv-card {
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .adv-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+        }
+
+        .card button,
+        button {
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        #meme img {
+            transition: transform 0.5s;
+        }
+
+        #meme img:hover {
+            transform: rotate(-3deg) scale(1.05);
+        }
+
+        .tip {
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .tip:hover {
+            transform: translateX(8px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .section {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        .section:nth-child(5) { animation-delay: 0.8s; }
+        .section:nth-child(6) { animation-delay: 1s; }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Дополнительные адаптивные стили */
+        @media (max-width: 900px) {
+            .breed-card {
+                width: 45%;
+            }
+
+            .intro-text {
+                font-size: 20px;
+            }
+
+            .navigation a {
+                padding: 6px 8px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .home-layout {
+                flex-direction: column;
+            }
+
+            .advantages {
+                flex-direction: column;
+            }
+
+            .section {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .breed-card {
+                width: 100%;
+            }
+
+            .navigation {
+                padding: 12px 0;
+            }
+
+            .navigation a {
+                font-size: 14px;
+                margin: 4px;
+            }
+
+            .intro-text {
+                font-size: 18px;
+                text-align: center !important;
+            }
+
+            textarea {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -278,7 +411,8 @@
         </div>
 
         <div class="home-image">
-            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1200&q=80" alt="Главный кот">
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1200&q=80"
+                 alt="Главный кот">
         </div>
     </div>
 </div>
@@ -308,7 +442,7 @@
             <p>Необычная порода без шерсти. Очень ласковые, любят тепло и внимание хозяина.</p>
         </div>
 
-        <div class="card">
+        <div class="card breed-card">
             <h3>Мой Дюша (без понятия какой породы)</h3>
             <img src="images/cat_tongue.jpg" height="320" width="240"/>
             <p>Подобрал где-то на улице. Ест за троих человек. Мурчит громче двигателя трактора. </p>
