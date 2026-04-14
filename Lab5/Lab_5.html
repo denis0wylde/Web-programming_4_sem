@@ -1,10 +1,610 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мир котов</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fdfaf6;
+            color: #333;
+            padding-top: 80px;
+        }
+
+        .navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #d97706;
+            padding: 18px 0;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .navigation a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .navigation a:hover {
+            background-color: #92400e;
+        }
+
+        .section {
+            min-height: 100vh;
+            padding: 40px 30px;
+            border-bottom: 2px solid #eee;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 48px;
+            color: #b45309;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 34px;
+            color: #92400e;
+            border-bottom: 3px solid #d97706;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            color: #b45309;
+            margin-top: 0;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+            margin: 15px auto;
+        }
+
+        .intro-text {
+            text-align: center;
+            font-size: 22px;
+            max-width: 900px;
+            margin: 0 auto 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* FLEXBOX */
+        .breeds-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .breed-card {
+            width: 300px;
+        }
+
+        /* GRID */
+        .care-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .tip {
+            background-color: #fff7ed;
+            border-left: 5px solid #f59e0b;
+            padding: 15px;
+            margin-top: 25px;
+            border-radius: 8px;
+        }
+
+        .facts-list,
+        .food-list {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input, button, select, textarea {
+            padding: 10px;
+            margin: 8px 5px 8px 0;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        textarea {
+            width: 100%;
+            max-width: 500px;
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #d97706;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #92400e;
+        }
+
+        /* FLEXBOX */
+        .home-layout {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .home-text {
+            flex: 1 1 400px;
+        }
+
+        .home-image {
+            flex: 1 1 350px;
+        }
+
+        .home-image img {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .advantages {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .adv-card {
+            flex: 1 1 220px;
+            background: white;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .adv-card h3 {
+            margin-top: 0;
+            color: #b45309;
+        }
+
+        footer {
+            background-color: #d97706;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .care-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navigation a {
+                display: inline-block;
+                margin: 5px;
+                font-size: 16px;
+            }
+
+            h1 {
+                font-size: 38px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+        }
+
+        /* Анимации */
+        .navigation a {
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .navigation a:hover {
+            transform: scale(1.08);
+        }
+
+        .home-image img {
+            transition: transform 0.5s;
+        }
+
+        .home-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .breed-card {
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .breed-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+        }
+
+        .adv-card {
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .adv-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+        }
+
+        .card button,
+        button {
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        #meme img {
+            transition: transform 0.5s;
+        }
+
+        #meme img:hover {
+            transform: rotate(-3deg) scale(1.05);
+        }
+
+        .tip {
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .tip:hover {
+            transform: translateX(8px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .section {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .section:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .section:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .section:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .section:nth-child(5) {
+            animation-delay: 0.8s;
+        }
+
+        .section:nth-child(6) {
+            animation-delay: 1s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Дополнительные адаптивные стили */
+        @media (max-width: 900px) {
+            .breed-card {
+                width: 45%;
+            }
+
+            .intro-text {
+                font-size: 20px;
+            }
+
+            .navigation a {
+                padding: 6px 8px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .home-layout {
+                flex-direction: column;
+            }
+
+            .advantages {
+                flex-direction: column;
+            }
+
+            .section {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .breed-card {
+                width: 100%;
+            }
+
+            .navigation {
+                padding: 12px 0;
+            }
+
+            .navigation a {
+                font-size: 14px;
+                margin: 4px;
+            }
+
+            .intro-text {
+                font-size: 18px;
+                text-align: center !important;
+            }
+
+            textarea {
+                max-width: 100%;
+            }
+        }
+    </style>
 </head>
+<script>
+    function showWelcome() {
+        console.log("Добро пожаловать на сайт про котов 🐱");
+    }
+    
+    setTimeout(showWelcome, 2000);
+
+    function randomFact() {
+        let facts = [
+            "Коты спят до 16 часов",
+            "Коты могут прыгать в 5 раз выше своего роста",
+            "Усы помогают котам ориентироваться",
+            "Коты видят в темноте лучше людей"
+        ];
+
+        let randomIndex = Math.floor(Math.random() * facts.length);
+        console.log("Факт о котах: " + facts[randomIndex]);
+    }
+
+    setTimeout(randomFact, 5000);
+</script>
+
 <body>
+<!-- Фиксированная навигация -->
+<div class="navigation">
+    <a href="#home">Главная</a>
+    <a href="#breeds">Породы</a>
+    <a href="#care">Уход</a>
+    <a href="#food">Питание</a>
+    <a href="#facts">Факты</a>
+    <a href="#meme">Мем</a>
+    <a href="#contact">Отзывы</a>
+</div>
+
+<!-- Главная -->
+<div id="home" class="section">
+    <h1>Мир котов</h1>
+
+    <div class="home-layout">
+        <div class="home-text">
+            <p class="intro-text" style="text-align: left;">
+                Добро пожаловать на сайт о самых милых, пушистых и независимых питомцах.
+                Здесь вы узнаете о популярных породах котов, правилах ухода, питании и интересных фактах.
+            </p>
+
+            <div class="advantages">
+                <div class="adv-card">
+                    <h3>Ласковые</h3>
+                    <p>Многие коты любят внимание, мурлыканье и уют рядом с человеком.</p>
+                </div>
+
+                <div class="adv-card">
+                    <h3>Забавные</h3>
+                    <p>Коты умеют удивлять своими привычками, прыжками и смешными позами.</p>
+                </div>
+
+                <div class="adv-card">
+                    <h3>Умные</h3>
+                    <p>Они быстро запоминают распорядок дня и отлично чувствуют настроение хозяина.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="home-image">
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1200&q=80"
+                 alt="Главный кот">
+        </div>
+    </div>
+</div>
+
+<!-- Породы -->
+<div id="breeds" class="section">
+    <h2>Популярные породы котов</h2>
+
+    <div class="breeds-flex">
+        <div class="card breed-card">
+            <h3>Британская короткошёрстная</h3>
+            <img src="https://cat.mau.ru/bri/main.jpg" alt="Британская короткошёрстная">
+            <p>Спокойные, плюшевые и очень красивые коты. Отлично подходят для жизни в квартире.</p>
+        </div>
+
+        <div class="card breed-card">
+            <h3>Мейн-кун</h3>
+            <img src="https://miska.ru/upload/resize_cache/iblock/e4a/585_410_1/r86rp6g1hcr0zds7lszuozimgun3lo8d.jpg"
+                 alt="Мейн-кун">
+            <p>Крупные и дружелюбные коты с роскошной шерстью и пушистым хвостом.</p>
+        </div>
+
+        <div class="card breed-card">
+            <h3>Сфинкс</h3>
+            <img src="https://miska.ru/upload/resize_cache/iblock/17c/585_410_1/6fsqa2a8ci1cnrzhjitu60rybwu0b921.jpg"
+                 alt="Сфинкс">
+            <p>Необычная порода без шерсти. Очень ласковые, любят тепло и внимание хозяина.</p>
+        </div>
+
+        <div class="card breed-card">
+            <h3>Мой Дюша (без понятия какой породы)</h3>
+            <img src="images/cat_tongue.jpg" height="320" width="240"/>
+            <p>Подобрал где-то на улице. Ест за троих человек. Мурчит громче двигателя трактора. </p>
+        </div>
+    </div>
+</div>
+
+<!-- Уход -->
+<div id="care" class="section">
+    <h2>Уход за котами</h2>
+
+    <div class="care-grid">
+        <div class="card">
+            <h3>Кормление</h3>
+            <p><strong>Как часто:</strong> 2–3 раза в день</p>
+            <p>Важно соблюдать режим и давать коту качественный корм.</p>
+        </div>
+
+        <div class="card">
+            <h3>Чистка лотка</h3>
+            <p><strong>Как часто:</strong> ежедневно</p>
+            <p>Коты любят чистоту, поэтому лоток нужно убирать каждый день.</p>
+        </div>
+
+        <div class="card">
+            <h3>Расчёсывание</h3>
+            <p><strong>Как часто:</strong> 1–3 раза в неделю</p>
+            <p>Особенно важно для длинношёрстных пород, чтобы шерсть не спутывалась.</p>
+        </div>
+
+        <div class="card">
+            <h3>Посещение ветеринара</h3>
+            <p><strong>Как часто:</strong> 1–2 раза в год</p>
+            <p>Профилактический осмотр помогает вовремя заметить возможные проблемы со здоровьем.</p>
+        </div>
+    </div>
+
+    <div class="tip">
+        <h3>Полезный совет</h3>
+        <p>У кота всегда должна быть свежая вода, уютное место для сна и немного личного пространства.</p>
+    </div>
+</div>
+
+<!-- Питание -->
+<div id="food" class="section">
+    <h2>Питание котов</h2>
+
+    <div class="card">
+        <h3>Что любят коты</h3>
+        <ul class="food-list">
+            <li>Качественный сухой корм</li>
+            <li>Влажный корм</li>
+            <li>Специальные лакомства</li>
+            <li>Чистую питьевую воду</li>
+        </ul>
+    </div>
+
+    <div class="card" style="margin-top: 20px;">
+        <h3>Чего нельзя давать</h3>
+        <ul class="food-list">
+            <li>Шоколад</li>
+            <li>Лук и чеснок</li>
+            <li>Кости</li>
+            <li>Слишком солёную и острую еду</li>
+        </ul>
+    </div>
+
+    <p style="margin-top: 20px; font-weight: bold; color: #b45309;">Средние расходы на корм: от 1500 рублей в месяц</p>
+</div>
+
+<!-- Факты -->
+<div id="facts" class="section">
+    <h2>Интересные факты о котах</h2>
+
+    <ol class="facts-list">
+        <li>Коты могут спать до 16 часов в сутки.</li>
+        <li>У каждого кота уникальный отпечаток носа.</li>
+        <li>Коты умеют мурлыкать не только от удовольствия, но и для успокоения.</li>
+        <li>Они отлично слышат высокие звуки.</li>
+        <li>Усы помогают котам ориентироваться в пространстве.</li>
+    </ol>
+
+    <form>
+        <p><b>Какая порода котов вам нравится больше всего?</b></p>
+        <select>
+            <option>Британец</option>
+            <option>Мейн-кун</option>
+            <option>Сфинкс</option>
+            <option>Дворовый котик</option>
+        </select>
+        <button type="button">Выбрать</button>
+    </form>
+</div>
+
+<!--МЕМ-->
+<div id="meme" class="section">
+    <h2>МЕМ</h2>
+    <img src="images/cat_meme.jpg" height="640" width="514"/>
+</div>
+
+<!-- Отзывы -->
+<div id="contact" class="section">
+    <h2>Отзывы и вопросы</h2>
+
+    <div class="tip">
+        <h3>Напишите о своём питомце</h3>
+        <p>Расскажите, как зовут вашего кота и что он любит больше всего.</p>
+    </div>
+
+    <form>
+        <input type="text" placeholder="Имя кота" size="30">
+        <br>
+        <textarea placeholder="Ваш отзыв"></textarea>
+        <br>
+        <button type="button">Отправить</button>
+    </form>
+
+    <form>
+        <p><b>Есть вопрос о котах?</b></p>
+        <input type="text" placeholder="Введите вопрос" size="40">
+        <button type="button">Спросить</button>
+    </form>
+</div>
+
+<footer>
+    <p>Сайт о котах | Все права котов защищены</p>
+</footer>
 
 </body>
 </html>
